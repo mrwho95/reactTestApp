@@ -1,8 +1,11 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
+import Dashboard from "./components/dashboard/Dashboard";
+import ProjectDetails from "./components/project/ProjectDetails";
+import ProjectSummary from "./components/project/ProjectSummary";
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
           </a>
         </header> */}
         <Navbar />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/project/:id" component={ProjectDetails} />
+        </Switch>
       </div>
     </BrowserRouter>
   );
